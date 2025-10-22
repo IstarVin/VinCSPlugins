@@ -1,0 +1,8 @@
+{
+  "name": "VinCSPlugins",
+  "description": "",
+  "manifestVersion": 1,
+  "pluginLists": [
+    "https://raw.githubusercontent.com/IstarVin/VinCSPlugins/builds/plugins.json"
+  ]
+}

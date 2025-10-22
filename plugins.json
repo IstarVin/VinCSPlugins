@@ -1,0 +1,21 @@
+[
+    {
+        "iconUrl": "https://github.com/SaurabhKaperwan/CSX/raw/refs/heads/master/CineStream/icon.jpg",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/IstarVin/VinCSPlugins",
+        "fileSize": 17683,
+        "status": 1,
+        "language": "en",
+        "authors": [
+            "IstarVin"
+        ],
+        "tvTypes": [
+            "Movie"
+        ],
+        "version": 4,
+        "internalName": "SendToServer",
+        "description": "Sends url to server",
+        "url": "https://raw.githubusercontent.com/IstarVin/VinCSPlugins/builds/SendToServer.cs3",
+        "name": "SendToServer"
+    }
+]
