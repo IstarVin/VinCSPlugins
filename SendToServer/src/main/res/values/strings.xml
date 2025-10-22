@@ -1,4 +1,8 @@
 <resources>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="send2server_settings">Send To Server Settings</string>
+    <string name="save_settings_desc">Save Settings</string>
+    <string name="separator_desc">Separator</string>
+    <string name="server_url">Server URL</string>
+    <string name="server_url_hint">Enter server URL</string>
 </resources>
