@@ -10,7 +10,9 @@ class SendToServerPlugin: Plugin() {
     override fun load(context: Context) {
         val sharedPref = context.getSharedPreferences("SendToServer", Context.MODE_PRIVATE)
 
-        registerVideoClickAction(SendToServerAction())
+        val url = sharedPref?.getString("url", null) ?: ""
+
+        registerVideoClickAction(SendToServerAction(url))
 
         val activity = context as AppCompatActivity
         openSettings = {

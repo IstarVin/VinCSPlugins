@@ -14,6 +14,8 @@ android {
 }
 dependencies {
     implementation("com.google.android.material:material:1.13.0")
+    val cloudstream by configurations
+    cloudstream("com.lagradost:cloudstream3:pre-release")
 }
 
 cloudstream {
@@ -29,4 +31,7 @@ cloudstream {
     )
 
     iconUrl = "https://github.com/SaurabhKaperwan/CSX/raw/refs/heads/master/CineStream/icon.jpg"
+
+    requiresResources = true
 }
+
