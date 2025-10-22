@@ -15,7 +15,7 @@ class SendToServerPlugin: Plugin() {
         val activity = context as AppCompatActivity
         openSettings = {
             val frag = SettingsFragment(this, sharedPref)
-            frag.show(activity.supportFragmentManager, "Frag")
+            frag.show(activity.supportFragmentManager, "SettingsFragment")
         }
     }
 }

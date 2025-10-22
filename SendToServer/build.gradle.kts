@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.konan.properties.Properties
 plugins {
     id("org.jetbrains.kotlin.android")
 }
-version = 2
+version = 3
 
 android {
     defaultConfig {
