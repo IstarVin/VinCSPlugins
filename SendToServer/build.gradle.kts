@@ -1,5 +1,8 @@
 import org.jetbrains.kotlin.konan.properties.Properties
 
+plugins {
+    id("org.jetbrains.kotlin.android")
+}
 version = 1
 
 android {
@@ -8,6 +11,9 @@ android {
         properties.load(project.rootProject.file("local.properties").inputStream())
         android.buildFeatures.buildConfig=true
     }
+}
+dependencies {
+    implementation("com.google.android.material:material:1.13.0")
 }
 
 cloudstream {
