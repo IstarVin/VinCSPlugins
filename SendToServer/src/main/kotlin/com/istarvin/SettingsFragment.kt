@@ -1,5 +1,6 @@
 package com.istarvin
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -16,22 +17,26 @@ class SettingsFragment(
 ): BottomSheetDialogFragment() {
     private val res = plugin.resources ?: throw Exception("Unable to access plugin resources")
 
+    @SuppressLint("DiscouragedApi", "UseCompatLoadingForDrawables")
     private fun getDrawable(name: String): Drawable {
         val id = res.getIdentifier(name, "drawable", BuildConfig.LIBRARY_PACKAGE_NAME)
         return res.getDrawable(id, null) ?: throw Exception("Drawable $name not found")
     }
 
+    @SuppressLint("DiscouragedApi")
     private fun <T : View> View.findView(name: String): T {
         val id = res.getIdentifier(name, "id", BuildConfig.LIBRARY_PACKAGE_NAME)
         if (id == 0) throw Exception("View ID $name not found.")
         return this.findViewById(id)
     }
 
+    @SuppressLint("DiscouragedApi", "UseCompatLoadingForDrawables")
     private fun View.makeTvCompatible() {
         val outlineId = res.getIdentifier("outline", "drawable", BuildConfig.LIBRARY_PACKAGE_NAME)
         this.background = res.getDrawable(outlineId, null)
     }
 
+    @SuppressLint("DiscouragedApi")
     private fun getLayout(name: String, inflater: LayoutInflater, container: ViewGroup?): View {
         val id = res.getIdentifier(name, "layout", BuildConfig.LIBRARY_PACKAGE_NAME)
         val layout = res.getLayout(id)
@@ -43,6 +48,26 @@ class SettingsFragment(
         savedInstanceState: Bundle?
     ): View {
         val view = getLayout("fragment_settings", inflater, container)
+
+        val saveIcon: ImageView = view.findView("saveIcon")
+
+        saveIcon.setImageDrawable(getDrawable("save_icon"))
+
+        saveIcon.makeTvCompatible()
+
+        saveIcon.setOnClickListener {
+            val context = this.context ?: return@setOnClickListener
+
+            AlertDialog.Builder(context)
+                .setTitle("Save & Reload")
+                .setMessage("Changes have been saved. Do you want to restart the app to apply them?")
+                .setPositiveButton("Yes") { _, _ ->
+                    dismiss()
+                    restartApp()
+                }
+                .setNegativeButton("No", null)
+                .show()
+        }
 
         return view
     }
